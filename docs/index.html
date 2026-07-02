@@ -4,245 +4,304 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Field Linguistics Extension Tools (FLET)</title>
-  <meta name="description" content="A friendly catalog of practical tools for linguistic fieldwork—what each tool does and where to get it." />
+  <meta name="description" content="A curated catalog of practical, free tools for linguistic fieldwork—what each tool does and where to get it." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0b1020" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="180x180.png" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <script>
+    // Apply saved theme before first paint to avoid a flash of the wrong theme.
+    (function () {
+      try {
+        var t = localStorage.getItem('flet-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { /* storage unavailable; fall back to system preference */ }
+    })();
+  </script>
 </head>
 <body>
-  <header class="hero" role="banner">
-    <div class="hero-inner">
-      <h1 id="project-title">Field Linguistics Extension Tools (FLET)</h1>
-      <p class="tagline" id="project-tagline">A friendly catalog of practical tools for linguistic fieldwork—what each tool does and where to get it.</p>
-      <div class="cta-buttons">
-        <a href="#tools" aria-label="Jump to available tools">Browse Tools</a>
-        <a href="https://github.com/rulingAnts/flet" class="secondary" target="_blank" rel="noopener" aria-label="View FLET on GitHub">View on GitHub</a>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="#top" aria-label="FLET home">
+        <img src="favicon.svg" alt="" width="28" height="28" />
+        <span>FLET</span>
+      </a>
+      <nav class="site-nav" aria-label="Site sections">
+        <a href="#tools">Tools</a>
+        <a href="#in-progress">Early&nbsp;Previews</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle color theme">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+          </svg>
+        </button>
+        <a class="header-github" href="https://github.com/rulingAnts/flet" target="_blank" rel="noopener" aria-label="FLET on GitHub (opens in a new tab)">
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <main id="content" role="main">
-    <section id="tools">
+  <main id="content">
+    <section class="hero" id="top" aria-labelledby="project-title">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Free &amp; open-source software for language documentation</p>
+        <h1 id="project-title">Field Linguistics <span class="accent-text">Extension Tools</span></h1>
+        <p class="tagline" id="project-tagline">A curated catalog of practical tools for linguistic fieldwork—what each tool does and where to get it. Most run right in your browser; the rest install on Windows, macOS, or Linux.</p>
+        <div class="cta-buttons">
+          <a class="btn btn-primary" href="#tools">Browse the tools</a>
+          <a class="btn btn-secondary" href="https://github.com/rulingAnts/flet" target="_blank" rel="noopener">View on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" aria-labelledby="tools-heading">
       <div class="container">
-        <h2>Available Tools</h2>
-        <p>Explore ready-to-use tools. Click a card to open the website or GitHub page for downloads and instructions.</p>
-        <div class="features-grid">
+        <div class="section-header">
+          <p class="section-eyebrow">Ready to use</p>
+          <h2 id="tools-heading">Available Tools</h2>
+          <p class="section-lede">Each card links to the tool’s website or GitHub page, with downloads and instructions.</p>
+        </div>
+        <div class="card-grid">
 
-          <div class="tool-card">
-            <span class="badge">Suite</span>
+          <article class="tool-card is-featured">
+            <span class="badge badge-suite">Suite</span>
             <h3>Flextext Editor Suite</h3>
-            <p>Hand the data collection to the people who know the language best. Community members transcribe, gloss, free‑translate, and record texts in a friendly offline web app on any phone or computer—then send the results back to you. Import the finished <code>.flextext</code> files straight into FLEx (FieldWorks) and pick up your analysis where they left off.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://flextext.app/" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <p>Hand the data collection to the people who know the language best. Community members transcribe, gloss, free-translate, and record texts in a friendly offline web app on any phone or computer—then send the results back to you. Import the finished <code>.flextext</code> files straight into FLEx (FieldWorks) and pick up your analysis where they left off.</p>
+            <a class="card-link" href="https://flextext.app/" target="_blank" rel="noopener">Open flextext.app<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>Visual Stimulus Kit Tool</h3>
             <p>Record responses to video and image prompts and automatically export a single audio file with clearly separated entries—ready for ELAN or SayMore.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingAnts.github.io/videoannotationtool" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <a class="card-link" href="https://rulingAnts.github.io/videoannotationtool" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>Dekereke PA Export</h3>
-            <p>Convert a Dekereke Phonology database directly to a Toolbox <code>.db</code> file for SIL Phonology Assistant—no FLEx round-trip needed. Ships with sensible default field mappings or accepts a custom CSV. Available as a portable app for Windows and macOS.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/dekereke-PA-export/" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <p>Convert a Dekereke Phonology database directly to a Toolbox <code>.db</code> file for SIL Phonology Assistant—no FLEx round-trip needed. Ships with sensible default field mappings or accepts a custom CSV. Portable app for Windows and macOS.</p>
+            <a class="card-link" href="https://rulingants.github.io/dekereke-PA-export/" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>LingTeX Tools</h3>
-            <p>Convert FLEx interlinear text, Phonology Assistant exports, and custom tab-separated data to LaTeX — instantly, from anywhere on your computer or in any online editor. Available as a desktop app (macOS &amp; Windows) and browser extension (Chrome &amp; Firefox).</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/LingTeX-Tools/" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <p>Convert FLEx interlinear text, Phonology Assistant exports, and custom tab-separated data to LaTeX—instantly, from anywhere on your computer or in any online editor. Desktop app (macOS &amp; Windows) and browser extension (Chrome &amp; Firefox).</p>
+            <a class="card-link" href="https://rulingants.github.io/LingTeX-Tools/" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>FLEx DiscourseChart Analysis Tool (FDAT)</h3>
             <p>View and export FLEx Discourse Charts in a clean, readable format with options like show/hide markers, color-coded salience, printable layouts, and more. Works in your browser or as a desktop app.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingAnts.github.io/fdat" target="_blank" rel="noopener">Open Web App</a>
-            </div>
-          </div>
+            <a class="card-link" href="https://rulingAnts.github.io/fdat" target="_blank" rel="noopener">Open web app<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>Bulk Audio Normalizer</h3>
             <p>Batch process many audio clips at once. Quickly raise volume, trim silence with padding, or normalize loudness for human listening—no need to edit files one by one.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/bulk_audio_normalizer/" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <a class="card-link" href="https://rulingants.github.io/bulk_audio_normalizer/" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>Audio Concatenator</h3>
             <p>Combine multiple audio files into a single file—right in your browser. Drag in your clips, reorder them, and download one merged audio file. No software to install.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/audio_concat/" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <a class="card-link" href="https://rulingants.github.io/audio_concat/" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
-            <h3>Native-Speaker Excel Transcription/Back-Translation Tool</h3>
-            <p>Collect text by letting native speakers transcribe and back‑translate in Excel. Converts Excel directly to FLEx‑ready FlexText.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/FlexText-Excel-Import/" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <h3>Excel Transcription &amp; Back-Translation Tool</h3>
+            <p>Collect text by letting native speakers transcribe and back-translate in Excel. Converts Excel directly to FLEx-ready FlexText.</p>
+            <a class="card-link" href="https://rulingants.github.io/FlexText-Excel-Import/" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>FLEx XML Viewer/Exporter</h3>
-            <p>Open Simple FLEx XML exports (especially various lists) and view/share them in a clear, user‑friendly format.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/flexml_display" target="_blank" rel="noopener">Open Web App</a>
-            </div>
-          </div>
+            <p>Open simple FLEx XML exports (especially various lists) and view or share them in a clear, user-friendly format.</p>
+            <a class="card-link" href="https://rulingants.github.io/flexml_display" target="_blank" rel="noopener">Open web app<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
-            <h3>New Testament Greek FLEx Interlinear Import Tool</h3>
-            <p>Generate FLEx Interlinear Text from the Greek New Testament so that you can use the FLEx text charting tool and FLEx DiscourseChart Analysis Tool (FDAT) to analyze the discourse structure of the text with linguistics software tools (FLEx and FDAT). Includes a template FLEx Project with text chart templates.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/biblical_languages_flex/" target="_blank" rel="noopener">Open Web App</a>
-            </div>
-          </div>
+            <h3>NT Greek FLEx Interlinear Import Tool</h3>
+            <p>Generate FLEx Interlinear Text from the Greek New Testament so you can analyze discourse structure with the FLEx text charting tool and FDAT. Includes a template FLEx project with text chart templates.</p>
+            <a class="card-link" href="https://rulingants.github.io/biblical_languages_flex/" target="_blank" rel="noopener">Open web app<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
+          <article class="tool-card">
             <span class="badge">Tool</span>
             <h3>OSE Interlinear Viewer</h3>
             <p>Extract interlinear texts from a OneStory Editor project and view or export them as HTML, XLingPaper, or FLExText.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/ose-interlinear-viewer" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <a class="card-link" href="https://rulingants.github.io/ose-interlinear-viewer" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          
         </div>
       </div>
     </section>
 
-    <section id="in-progress">
+    <section id="in-progress" aria-labelledby="in-progress-heading">
       <div class="container">
-        <h2>Partially Usable (Early Preview)</h2>
-        <div class="features-grid">
-          
+        <div class="section-header">
+          <p class="section-eyebrow">In active development</p>
+          <h2 id="in-progress-heading">Early Previews</h2>
+          <p class="section-lede">Usable today, but still rough around the edges—expect some gaps and changes.</p>
+        </div>
+        <div class="card-grid">
 
-          <div class="tool-card">
-            <span class="badge">Early</span>
+          <article class="tool-card">
+            <span class="badge badge-early">Early</span>
             <h3>Tone Comparison App</h3>
-            <p>Export a subset of words and associated recordings (with or without frames) from a Dekereke Database for easy, graphical sorting by surface tone melody on Android or Desktop, outside researcher or participatory (with native speakers).</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingAnts.github.io/tone_comparison_app" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
-          <div class="tool-card">
-            <span class="badge">Early</span>
-            <h3>Dekereke Pivot Tables</h3>
-            <p>Create interactive pivot tables from your Dekereke database—easily filter, sort, and analyze your linguistic data in a spreadsheet-like interface right in your browser.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://rulingants.github.io/dekereke_pivot_tables/" target="_blank" rel="noopener">Open Website</a>
-            </div>
-          </div>
+            <p>Export a subset of words and recordings (with or without frames) from a Dekereke database for easy, graphical sorting by surface tone melody on Android or desktop—by an outside researcher or participatory, with native speakers.</p>
+            <a class="card-link" href="https://rulingAnts.github.io/tone_comparison_app" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
-            <span class="badge">Early</span>
+          <article class="tool-card">
+            <span class="badge badge-early">Early</span>
+            <h3>Dekereke Pivot Tables</h3>
+            <p>Create interactive pivot tables from your Dekereke database—filter, sort, and analyze your linguistic data in a spreadsheet-like interface right in your browser.</p>
+            <a class="card-link" href="https://rulingants.github.io/dekereke_pivot_tables/" target="_blank" rel="noopener">Open website<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+
+          <article class="tool-card">
+            <span class="badge badge-early">Early</span>
             <h3>Oral Text Collection Web App</h3>
             <p>Record native texts right in a web browser, including audio prompts for consent and metadata—handy for quick field collection.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://github.com/rulingAnts/online_recorder" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </div>
+            <a class="card-link" href="https://github.com/rulingAnts/online_recorder" target="_blank" rel="noopener">View on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
-          <div class="tool-card">
-            <span class="badge">Early</span>
+          <article class="tool-card">
+            <span class="badge badge-early">Early</span>
             <h3>Bulk Media File Manager</h3>
             <p>Bulk copy with filename prefixes/suffixes and format conversion (in progress). Useful for organizing large media collections.</p>
-            <div class="cta-buttons">
-              <a class="primary-link" href="https://github.com/rulingAnts/bulk_mediafile_manager" target="_blank" rel="noopener">GitHub</a>
-            </div>
+            <a class="card-link" href="https://github.com/rulingAnts/bulk_mediafile_manager" target="_blank" rel="noopener">View on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads" aria-labelledby="downloads-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Direct downloads</p>
+          <h2 id="downloads-heading">Finished, Awaiting Repositories</h2>
+          <p class="section-lede">Ready to use, but not yet published as full GitHub repositories. Provided as portable downloads, as is.</p>
+        </div>
+        <div class="link-panels">
+          <div class="link-panel">
+            <h3>Dekereke Tools</h3>
+            <ul class="link-list">
+              <li><a href="https://drive.google.com/file/d/1mCK573e2e3hFYWs2w-zrPkD8-LZZFE9M/view?usp=sharing" target="_blank" rel="noopener">Bulk Rename Files<span class="sr-only"> (opens in a new tab)</span></a><span>Rename many files at once from a CSV list.</span></li>
+              <li><a href="https://drive.google.com/file/d/1PI5EqPNie34jCigDej6LU-KqDylgQd_y/view?usp=sharing" target="_blank" rel="noopener">REGEX Search Tool<span class="sr-only"> (opens in a new tab)</span></a><span>Search a Dekereke database using flexible patterns.</span></li>
+              <li><a href="https://drive.google.com/file/d/1PI5EqPNie34jCigDej6LU-KqDylgQd_y/view?usp=sharing" target="_blank" rel="noopener">Excel Import and Export<span class="sr-only"> (opens in a new tab)</span></a><span>Convert between Dekereke DB and Excel to enable bulk changes and re-layout.</span></li>
+              <li><a href="https://drive.google.com/file/d/1RoZrhaftJ3iXB4ApsBj4Aox2o10Jc3yT/view?usp=sharing" target="_blank" rel="noopener">Export Anki Flashcards<span class="sr-only"> (opens in a new tab)</span></a><span>Turn your Dekereke database into Anki decks (pictures supported).</span></li>
+              <li><a href="https://drive.google.com/file/d/1RoZrhaftJ3iXB4ApsBj4Aox2o10Jc3yT/view?usp=sharing" target="_blank" rel="noopener">Sort Missing and Orphaned Files<span class="sr-only"> (opens in a new tab)</span></a><span>Compare database vs. sound files to spot mismatches.</span></li>
+            </ul>
+          </div>
+          <div class="link-panel">
+            <h3>Sound File Management</h3>
+            <ul class="link-list">
+              <li><a href="https://drive.google.com/file/d/1sKTTMdpeWXjm-t_GC-n1bKfONEYMom_T/view?usp=sharing" target="_blank" rel="noopener">Convert WAV Files to 16-bit<span class="sr-only"> (opens in a new tab)</span></a><span>Make audio compatible with FLEx/Dekereke and reduce size.</span></li>
+              <li><a href="https://drive.google.com/file/d/1sKTTMdpeWXjm-t_GC-n1bKfONEYMom_T/view?usp=sharing" target="_blank" rel="noopener">Generate Blank WAV Files<span class="sr-only"> (opens in a new tab)</span></a><span>Prepare placeholder files (from a CSV list) for alternate recording workflows.</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="finished-not-uploaded">
+    <section id="roadmap" aria-labelledby="roadmap-heading">
       <div class="container">
-        <h2>Finished (Not Yet Fully Uploaded)</h2>
-        <p>These are ready to use but still awaiting full GitHub repositories. They’re provided as portable downloads “as is.”</p>
-        <h3>Dekereke Tools</h3>
-        <ul>
-          <li><a href="https://drive.google.com/file/d/1mCK573e2e3hFYWs2w-zrPkD8-LZZFE9M/view?usp=sharing" target="_blank" rel="noopener">Bulk Rename Files</a> — Rename many files at once from a CSV list.</li>
-          <li><a href="https://drive.google.com/file/d/1PI5EqPNie34jCigDej6LU-KqDylgQd_y/view?usp=sharing" target="_blank" rel="noopener">REGEX Search Tool</a> — Search a Dekereke database using flexible patterns.</li>
-          <li><a href="https://drive.google.com/file/d/1PI5EqPNie34jCigDej6LU-KqDylgQd_y/view?usp=sharing" target="_blank" rel="noopener">Excel Import and Export</a> — Convert between Dekereke DB and Excel to enable bulk changes and re‑layout.</li>
-          <li><a href="https://drive.google.com/file/d/1RoZrhaftJ3iXB4ApsBj4Aox2o10Jc3yT/view?usp=sharing" target="_blank" rel="noopener">Export Anki Flashcards</a> — Turn your Dekereke database into Anki decks (pictures supported).</li>
-          <li><a href="https://drive.google.com/file/d/1RoZrhaftJ3iXB4ApsBj4Aox2o10Jc3yT/view?usp=sharing" target="_blank" rel="noopener">Sort Missing and Orphaned Files (simple)</a> — Compare database vs. sound files to spot mismatches.</li>
-        </ul>
-        <h3>Sound File Management</h3>
-        <ul>
-          <li><a href="https://drive.google.com/file/d/1sKTTMdpeWXjm-t_GC-n1bKfONEYMom_T/view?usp=sharing" target="_blank" rel="noopener">Convert all WAV Files in a Folder to 16‑bit</a> — Make audio compatible with FLEx/Dekereke and reduce size.</li>
-          <li><a href="https://drive.google.com/file/d/1sKTTMdpeWXjm-t_GC-n1bKfONEYMom_T/view?usp=sharing" target="_blank" rel="noopener">Generate Blank WAV files (from a CSV list)</a> — Prepare placeholder files for alternate recording workflows.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="roadmap">
-      <div class="container">
-        <h2>Planned Tools</h2>
-        <ul>
-          <li><a href="https://github.com/rulingAnts/Quickstart_Android" target="_blank" rel="noopener">QuickStart Android</a> — A simple template for collecting wordlists and basic text/audio from community members.</li>
-          <li>Android Text Collection Tool — A streamlined app for recording native texts with consent and metadata.</li>
-          <li>FLEx TextChart to Excel Sheet Converter — Turn FLEx interlinear text charts into Excel for easy formatting and printing.</li>
-          <li>FLEx Interlinear Tagging View Export — Export Tagging View in a sharable/printable format.</li>
-          <li>Biblical Language to FLEx Interlinear Text Importer — Import Greek/Hebrew/Aramaic interlinear text into FLEx.</li>
-          <li>Complex Concordance → Combined Text (FLEx) — Merge multiple examples into a new text, preserving references.</li>
-          <li>FLEx DB → Dekereke Snapshot Export — Work in FLEx and analyze in Dekereke.</li>
-          <li>FLEx ↔ Dekereke Sync (future) — Sync data across roles and tools, with offline AI support.</li>
+        <div class="section-header">
+          <p class="section-eyebrow">What’s next</p>
+          <h2 id="roadmap-heading">Planned Tools</h2>
+        </div>
+        <ul class="roadmap-list">
+          <li><strong><a href="https://github.com/rulingAnts/Quickstart_Android" target="_blank" rel="noopener">QuickStart Android<span class="sr-only"> (opens in a new tab)</span></a></strong><span>A simple template for collecting wordlists and basic text/audio from community members.</span></li>
+          <li><strong>Android Text Collection Tool</strong><span>A streamlined app for recording native texts with consent and metadata.</span></li>
+          <li><strong>FLEx TextChart to Excel Converter</strong><span>Turn FLEx interlinear text charts into Excel for easy formatting and printing.</span></li>
+          <li><strong>FLEx Interlinear Tagging View Export</strong><span>Export Tagging View in a sharable, printable format.</span></li>
+          <li><strong>Biblical Language FLEx Importer</strong><span>Import Greek/Hebrew/Aramaic interlinear text into FLEx.</span></li>
+          <li><strong>Complex Concordance → Combined Text</strong><span>Merge multiple examples into a new FLEx text, preserving references.</span></li>
+          <li><strong>FLEx DB → Dekereke Snapshot Export</strong><span>Work in FLEx and analyze in Dekereke.</span></li>
+          <li><strong>FLEx ↔ Dekereke Sync <em>(future)</em></strong><span>Sync data across roles and tools, with offline AI support.</span></li>
         </ul>
       </div>
     </section>
 
-    <section id="about">
+    <section id="about" aria-labelledby="about-heading">
       <div class="container">
-        <h2>About FLET</h2>
-        <p>FLET (Field Linguistics Extension Tools) is a community‑driven catalog of practical tools that make fieldwork easier—from recording and organizing audio to preparing readable charts and exports. Many tools run in your browser; others provide installers for Windows, macOS, or Linux.</p>
-        <p>Each tool has its own page with instructions and downloads. If you’re unsure where to start, browse the tools above and pick the one that matches your task.</p>
-      </div>
-    </section>
-
-    <section id="license">
-      <div class="container">
-        <h2>License</h2>
-        <div class="license-box">
-          <p><strong>Documentation (this page and README)</strong>: Creative Commons Attribution 4.0 (CC BY 4.0). You can share and adapt it with credit.</p>
-          <p><strong>Individual Tools</strong>: Each tool has its own license in its repository. Please check the tool’s page for details.</p>
+        <div class="section-header">
+          <p class="section-eyebrow">The project</p>
+          <h2 id="about-heading">About FLET</h2>
+        </div>
+        <div class="about-grid">
+          <div class="prose">
+            <p>FLET (Field Linguistics Extension Tools) is a community-driven catalog of practical tools that make fieldwork easier—from recording and organizing audio to preparing readable charts and exports. Many tools run in your browser; others provide installers for Windows, macOS, or Linux.</p>
+            <p>Each tool has its own page with instructions and downloads. If you’re unsure where to start, browse the tools above and pick the one that matches your task.</p>
+          </div>
+          <aside class="license-box" aria-labelledby="license-heading">
+            <h3 id="license-heading">Licensing</h3>
+            <p><strong>Documentation</strong> (this page and the README) is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0<span class="sr-only"> (opens in a new tab)</span></a>. Share and adapt it with credit.</p>
+            <p><strong>Individual tools</strong> each carry their own license—check the tool’s repository for details.</p>
+          </aside>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; <span id="year"></span> FLET Project. <a href="https://github.com/rulingAnts/flet" rel="noopener" target="_blank">View on GitHub</a></p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="favicon.svg" alt="" width="24" height="24" />
+        <span>FLET · Field Linguistics Extension Tools</span>
+      </div>
+      <p>&copy; <span id="year">2026</span> FLET Project · <a href="https://github.com/rulingAnts/flet" rel="noopener" target="_blank">GitHub<span class="sr-only"> (opens in a new tab)</span></a> · Documentation licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0<span class="sr-only"> (opens in a new tab)</span></a></p>
+    </div>
   </footer>
+
   <script>
-    // Set the year in the footer without external dependencies
     document.addEventListener('DOMContentLoaded', () => {
       const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
+
+      // Theme toggle: cycles light/dark, persists choice, defaults to system preference.
+      const btn = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+      const current = () => root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light');
+      const updateLabel = () => {
+        const next = current() === 'dark' ? 'light' : 'dark';
+        btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+      };
+      btn.addEventListener('click', () => {
+        const next = current() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('flet-theme', next); } catch (e) { /* ignore */ }
+        updateLabel();
+      });
+      systemDark.addEventListener('change', updateLabel);
+      updateLabel();
     });
   </script>
 </body>
